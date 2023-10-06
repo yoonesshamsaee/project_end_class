@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>product list</title>
+</head>
+<body>
+<h1>product list</h1>
+<p><b>Total Product</b>{{ number_of_Product }}</p>
+<p><b>Avg.price {{ info.price__avg }}</b></p>
+<p><b>Max price</b>{{ info.price__max }}</p>
+<p><b>Min price</b>{{ info.price__min }}</p>
+<p><b>Max ratings</b>{{ info.ratings__max }}</p>
+<div style="line-height: 30px">
+
+<ul>
+    {% for Product in all_product %}
+        <li>
+       <a href="{% url 'Product_detail' slug=Product.slug %}"> {{ Product.title }}</a>......
+            <a href="{{Product.id }}"> <b>{{ Product.price }}</b></a>......
+            <b>{{ Product.description }}</b>. . . . .
+        <b>{{ Product.is_active }}</b>
+        </li>
+
+    {% endfor %}
+
+
+</ul>
+</div>
+</body>
+</html>
